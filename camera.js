@@ -34,11 +34,11 @@ function destroyCamera() {
     }
 }
 
-function createCamera(position, rotation, fov) {
+function createCamera(pos1X, pos1Y, pos1Z, rot1, fov) {
     if (camera != null || interpolCam != null) {
         destroyCamera;
     }
-    camera = native.createCamWithParams("DEFAULT_SCRIPTED_CAMERA", position.X, position.Y, position.Z, rotation.Z, fov, 0, 2, false, 0);
+    camera = native.createCamWithParams("DEFAULT_SCRIPTED_CAMERA", pos1X, pos1Y, pos1Z, rot1, fov, 0, 2, false, 0);
     native.setCamActive(camera, true);
     native.renderScriptCams(true, false, 0, true, false);
 }

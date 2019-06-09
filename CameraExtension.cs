@@ -16,7 +16,7 @@ namespace Server.Extensions
         /// <param name="fov">Field of View</param>
         public static void CreateCamera(IPlayer player, Position position, Rotation rotation, int fov)
         {
-            player.Emit("createCamera", position, rotation, fov);
+            player.Emit("createCamera", position.X, position.Y, position.Z, rotation.Yaw, fov);
         }
 
         /// <summary>
