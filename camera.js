@@ -26,13 +26,14 @@ function interpolateCamera(pos1X, pos1Y, pos1Z, rot1, fov, pos2X, pos2Y, pos2Z, 
 }
 
 function destroyCamera() {
+    native.renderScriptCams(false, false, 0, true, false);
     native.destroyCam(camera, true);
     native.destroyCam(interpolCam, true);
-    native.renderScriptCams(false, false, 0, true, false);
     native.destroyAllCams(true);
     camera = null;
     interpolCam = null;
     native.setFollowPedCamViewMode(1);
+    native.clearFocus();
 }
 
 function createCamera(pos1X, pos1Y, pos1Z, rot1, fov) {
