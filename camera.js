@@ -22,16 +22,17 @@ function interpolateCamera(pos1X, pos1Y, pos1Z, rot1, fov, pos2X, pos2Y, pos2Z, 
     camera = native.createCamWithParams("DEFAULT_SCRIPTED_CAMERA", pos1X, pos1Y, pos1Z, 0, 0, rot1, fov, false, 0);
     interpolCam = native.createCamWithParams("DEFAULT_SCRIPTED_CAMERA", pos2X, pos2Y, pos2Z, 0, 0, rot2, fov2, false, 0);
     native.setCamActiveWithInterp(interpolCam, camera, duration, 1, 1);
-    native.renderScriptCams(true, false, 0, true, false);
+    native.renderScriptCams(true, false, 0, false, false);
 }
 
 function destroyCamera() {
-    if (camera != -1 || interpolCam != -1) {
-        native.destroyAllCams(true);
-        native.renderScriptCams(false, false, 0, false, false);
-        camera = null;
-        interpolCam = null;
-    }
+    native.destroyCam(camera, true);
+    native.destroyCam(interpolCam, true);
+    native.renderScriptCams(false, false, 0, true, false);
+    native.destroyAllCams(true);
+    camera = null;
+    interpolCam = null;
+    native.setFollowPedCamViewMode(1);
 }
 
 function createCamera(pos1X, pos1Y, pos1Z, rot1, fov) {
@@ -44,5 +45,5 @@ function createCamera(pos1X, pos1Y, pos1Z, rot1, fov) {
 	
     camera = native.createCamWithParams("DEFAULT_SCRIPTED_CAMERA", pos1X, pos1Y, pos1Z, rot1, fov, 0, 2, false, 0);
     native.setCamActive(camera, true);
-    native.renderScriptCams(true, false, 0, true, false);
+    native.renderScriptCams(true, false, 0, false, false);
 }
