@@ -38,6 +38,10 @@ function createCamera(pos1X, pos1Y, pos1Z, rot1, fov) {
     if (camera != null || interpolCam != null) {
         destroyCamera;
     }
+	
+    native.setFocusArea(pos1X, pos1Y, pos1Z, 0.0, 0.0, 0.0);
+    native.setHdArea(pos1X, pos1Y, pos1Z, 30)
+	
     camera = native.createCamWithParams("DEFAULT_SCRIPTED_CAMERA", pos1X, pos1Y, pos1Z, rot1, fov, 0, 2, false, 0);
     native.setCamActive(camera, true);
     native.renderScriptCams(true, false, 0, true, false);
