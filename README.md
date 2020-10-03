@@ -1,10 +1,10 @@
 # AltVNetCameraHandler
 
-This is a basic resource for AltV.Net serverside and Java clientside. Handles the players current camera. This is still a WIP.
+This is a basic resource for AltV.Net serverside c# and JavaScript clientside. Handles the players current camera. This is still a WIP.
 
 ## Setup
 
-The `CameraExtension.cs` file is the serverside one. Place the camera.js inside your current resources and remember to make sure it's included in the `resource.cfg`
+The `CameraExtension.cs` file is the serverside one. Place the `camera.js` inside your current resources and remember to make sure it's included in the `resource.cfg`
 
 ## Usage
 
